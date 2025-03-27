@@ -16,7 +16,8 @@ public class Main {
             System.out.println("************ Menu ************************************************");
             System.out.println("1. Cadastrar nomes");
             System.out.println("2. Listar nomes");
-            System.out.println("3. Sair");
+            System.out.println("2. Buscar produtos por nomes");
+            System.out.println("4. Sair");
             System.out.print("Escolha uma opção: ");
             System.out.println("****************************************************************");
 
