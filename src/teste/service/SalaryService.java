@@ -8,10 +8,6 @@ public class SalaryService {
     private TaxService taxeService;
     private PensionService pensionService;
 
-    public SalaryService() {
-        this(new TaxService(), new PensionService());
-    }
-
     public SalaryService(TaxService taxeService, PensionService pensionService) {
         this.taxeService = taxeService;
         this.pensionService = pensionService;

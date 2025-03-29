@@ -1,7 +1,10 @@
 package teste;
 
 import teste.entity.Employee;
+import teste.service.BrazilTaxService;
+import teste.service.PensionService;
 import teste.service.SalaryService;
+import teste.service.TaxService;
 
 import java.util.Scanner;
 
@@ -23,14 +26,16 @@ public class Main {
         }
 
         Employee employee = new Employee(nome, salarioBase);
-        SalaryService salario = new SalaryService();
+        TaxService impostos = new BrazilTaxService();
+        PensionService contribuicaoPensao = new PensionService();
+        SalaryService salario = new SalaryService(impostos, contribuicaoPensao);
 
         double salarioLiquido = salario.netSalary(employee);
         System.out.println("\nNome: " + employee.getName());
         System.out.printf("Salario Bruto: %.2f%n", salarioBase);
         System.out.printf("Salario Liquido: %.2f%n", salarioLiquido);
-        System.out.println("(Impostos: 20%, Contribuição: 10%)");
-        System.out.println("--------------------------------");
+        System.out.println("(Impostos: " + impostos.getTax() + "," + " Contribuição: " + contribuicaoPensao.getTax()+")");
+        System.out.println("---------------------------------");
         scanner.close();
 
     }

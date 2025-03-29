@@ -1,10 +1,10 @@
 package teste.service;
 
-public class TaxService {
-    private final double tax = 0.2;
-
+public class BrazilTaxService extends TaxService{
+    private final  double tax = 0.30;
+  @Override
     public double tax(double amount) {
-        return amount * tax;
+        return amount * 0.30;
     }
 
     public double getTax() {
