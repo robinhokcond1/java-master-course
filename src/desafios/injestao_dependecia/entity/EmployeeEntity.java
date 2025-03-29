@@ -1,11 +1,11 @@
-package teste.entity;
+package desafios.injestao_dependecia.entity;
 
-public class Employee {
+public class EmployeeEntity {
 
     private String name;
     private double grossSalary;
 
-    public Employee(String name, double grossSalary) {
+    public EmployeeEntity(String name, double grossSalary) {
         this.name = name;
         this.grossSalary = grossSalary;
     }

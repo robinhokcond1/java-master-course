@@ -1,4 +1,4 @@
-package teste.service;
+package desafios.injestao_dependecia.service;
 
 public class PensionService {
     private final double tax = 0.1;

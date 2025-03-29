@@ -1,4 +1,4 @@
-package teste.service;
+package desafios.injestao_dependecia.service;
 
 public class BrazilTaxService extends TaxService{
     private final  double tax = 0.30;

@@ -1,7 +1,7 @@
-package teste.service;
+package desafios.injestao_dependecia.service;
 
 
-import teste.entity.Employee;
+import desafios.injestao_dependecia.entity.EmployeeEntity;
 
 public class SalaryService {
 
@@ -13,7 +13,7 @@ public class SalaryService {
         this.pensionService = pensionService;
     }
 
-    public double netSalary(Employee employee) {
+    public double netSalary(EmployeeEntity employee) {
         return employee.getGrossSalary()
                 - taxeService.tax(employee.getGrossSalary())
                 - pensionService.discount(employee.getGrossSalary());

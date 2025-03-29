@@ -1,4 +1,4 @@
-package teste.service;
+package desafios.injestao_dependecia.service;
 
 public class TaxService {
     private final double tax = 0.2;

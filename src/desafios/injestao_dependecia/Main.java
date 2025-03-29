@@ -1,10 +1,10 @@
-package teste;
+package desafios.injestao_dependecia;
 
-import teste.entity.Employee;
-import teste.service.BrazilTaxService;
-import teste.service.PensionService;
-import teste.service.SalaryService;
-import teste.service.TaxService;
+import desafios.injestao_dependecia.entity.EmployeeEntity;
+import desafios.injestao_dependecia.service.BrazilTaxService;
+import desafios.injestao_dependecia.service.PensionService;
+import desafios.injestao_dependecia.service.SalaryService;
+import desafios.injestao_dependecia.service.TaxService;
 
 import java.util.Scanner;
 
@@ -25,7 +25,7 @@ public class Main {
             return;
         }
 
-        Employee employee = new Employee(nome, salarioBase);
+        EmployeeEntity employee = new EmployeeEntity(nome, salarioBase);
         TaxService impostos = new BrazilTaxService();
         PensionService contribuicaoPensao = new PensionService();
         SalaryService salario = new SalaryService(impostos, contribuicaoPensao);
