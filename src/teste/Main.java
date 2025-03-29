@@ -1,43 +1,37 @@
 package teste;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import teste.entity.Employee;
+import teste.service.SalaryService;
+
+import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
-        final int TOTAL = 100_000;
-        final int REMOVER = 50_000;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nBem vindo ao programa calculo de salário");
+        System.out.println("--------------------------------");
 
-        // Testando com ArrayList
-        List<Integer> arrayList = new ArrayList<>();
-        long inicioArray = System.currentTimeMillis();
+        System.out.print("Informe o seu nome: ");
+        String nome = scanner.nextLine();
 
-        for (int i = 0; i < TOTAL; i++) {
-            arrayList.add(i);
+        System.out.print("Informe o seu salário base: ");
+        double salarioBase = scanner.nextDouble();
+
+        if (salarioBase < 0) {
+            System.out.println("Salário não pode ser negativo.");
+            return;
         }
 
-        for (int i = 0; i < REMOVER; i++) {
-            arrayList.remove(0); // remove do início
-        }
+        Employee employee = new Employee(nome, salarioBase);
+        SalaryService salario = new SalaryService();
 
-        long fimArray = System.currentTimeMillis();
-        System.out.println("⏱ Tempo com ArrayList: " + (fimArray - inicioArray) + " ms");
+        double salarioLiquido = salario.netSalary(employee);
+        System.out.println("\nNome: " + employee.getName());
+        System.out.printf("Salario Bruto: %.2f%n", salarioBase);
+        System.out.printf("Salario Liquido: %.2f%n", salarioLiquido);
+        System.out.println("(Impostos: 20%, Contribuição: 10%)");
+        System.out.println("--------------------------------");
+        scanner.close();
 
-        // Testando com LinkedList
-        List<Integer> linkedList = new LinkedList<>();
-        long inicioLinked = System.currentTimeMillis();
-
-        for (int i = 0; i < TOTAL; i++) {
-            linkedList.add(i);
-        }
-
-        for (int i = 0; i < REMOVER; i++) {
-            linkedList.remove(0); // remove do início
-        }
-
-        long fimLinked = System.currentTimeMillis();
-        System.out.println("⏱ Tempo com LinkedList: " + (fimLinked - inicioLinked) + " ms");
     }
 }
